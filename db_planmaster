@@ -1,0 +1,22 @@
+-- 1. Buat Tabel Users
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    nama_lengkap VARCHAR(100)
+);
+
+-- 2. Isi User Admin
+INSERT INTO users (username, password, nama_lengkap) 
+VALUES ('admin', MD5('admin123'), 'Administrator Ganteng');
+
+-- 3. Buat Tabel Tasks (Jadwal)
+CREATE TABLE tasks (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    task_name VARCHAR(100) NOT NULL,
+    description TEXT,
+    deadline DATE NOT NULL,
+    priority ENUM('High', 'Medium', 'Low') NOT NULL,
+    status ENUM('Pending', 'Done') DEFAULT 'Pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
